@@ -15,7 +15,7 @@ public class Panel extends JPanel implements Runnable
 	
 	private boolean running;
 	
-	private boolean right = true, left =false,
+	private boolean right = true, left = false, up = false, down = false;
 	
 	private BodyPart b;
 	private ArrayList<BodyPart> snake;
@@ -62,6 +62,13 @@ public class Panel extends JPanel implements Runnable
 			snake.add(b);
 		}
 		ticks++;
+		if(ticks > 250000)
+		{
+			if(right) xCoor++;
+			if(left) xCoor--;
+			if(up) yCoor--;
+			if(down) yCoor++;
+		}
 		
 	}
 	
