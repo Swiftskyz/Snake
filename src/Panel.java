@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -14,10 +15,22 @@ public class Panel extends JPanel implements Runnable
 	
 	private boolean running;
 	
+	private boolean right = true, left =false,
+	
+	private BodyPart b;
+	private ArrayList<BodyPart> snake;
+	
+	private int xCoor = 10, yCoor = 10, size = 5;
+	private int ticks = 0;
+	
+	
 	public Panel()
 	{
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		
+		snake = new ArrayList<BodyPart>();
+		
+		start();
 	}
 	
 	public void start()
@@ -43,6 +56,12 @@ public class Panel extends JPanel implements Runnable
 	
 	public void tick()
 	{
+		if(snake.size() ==0)
+		{
+			& = new BodyPart(xCoor, yCoor, 10);
+			snake.add(b);
+		}
+		ticks++;
 		
 	}
 	
@@ -61,6 +80,10 @@ public class Panel extends JPanel implements Runnable
 		for(int i = 0 ; i < HEIGHT/10 ; i++)
 		{
 			g.drawLine(0, i * 10, HEIGHT, i * 10);
+		}
+		for(int i = 0 ; i < snake.size() ; i++)
+		{
+			snake.get(i).draw(g);
 		}
 	}
 
