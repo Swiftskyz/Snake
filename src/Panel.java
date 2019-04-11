@@ -56,9 +56,9 @@ public class Panel extends JPanel implements Runnable
 	
 	public void tick()
 	{
-		if(snake.size() ==0)
+		if(snake.size() == 0)
 		{
-			& = new BodyPart(xCoor, yCoor, 10);
+			b = new BodyPart(xCoor, yCoor, 10);
 			snake.add(b);
 		}
 		ticks++;
