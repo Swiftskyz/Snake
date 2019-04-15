@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -22,6 +23,11 @@ public class Panel extends JPanel implements Runnable, KeyListener
 	private BodyPart b;
 	private ArrayList<BodyPart> snake;
 	
+	private Apple apple;
+	private ArrayList<Apple> apples;
+	
+	private Random r;
+	
 	private int xCoor = 10, yCoor = 10, size = 5;
 	private int ticks = 0;
 	
@@ -34,6 +40,9 @@ public class Panel extends JPanel implements Runnable, KeyListener
 		addKeyListener(this);
 		
 		snake = new ArrayList<BodyPart>();
+		apples = new ArrayList<Apple>();
+		
+		r = new Random();
 		
 		start();
 	}
@@ -84,6 +93,15 @@ public class Panel extends JPanel implements Runnable, KeyListener
 				snake.remove(0);
 			}
 		}
+		if(apples.size() ==0)
+		{
+			int xCoor = r.nextInt(49);
+			int yCoor = r.nextInt(49);
+			
+			apple = new Apple(xCoor, yCoor, 10);
+			apples.add(apple);
+		}
+		
 		
 	}
 	
@@ -107,6 +125,11 @@ public class Panel extends JPanel implements Runnable, KeyListener
 		{
 			snake.get(i).draw(g);
 		}
+		for (int i = 0 ; i < apples.size(); i++)
+		{
+			apples.get(i).draw(g);
+		}
+		
 	}
 
 	@Override
