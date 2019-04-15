@@ -102,6 +102,15 @@ public class Panel extends JPanel implements Runnable, KeyListener
 			apples.add(apple);
 		}
 		
+		for(int i = 0 ; i < apples.size(); i++)
+		{
+			if(xCoor == apples.get(i).getxCoor() && yCoor == apples.get(1).getyCoor())
+			{
+				size++;
+				apples.remove(i);
+				i++;
+			}
+		}
 		
 	}
 	
