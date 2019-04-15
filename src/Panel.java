@@ -76,7 +76,7 @@ public class Panel extends JPanel implements Runnable, KeyListener
 			snake.add(b);
 		}
 		ticks++;
-		if(ticks > 250000)
+		if(ticks > 400000)
 		{
 			if(right) xCoor++;
 			if(left) xCoor--;
@@ -123,7 +123,6 @@ public class Panel extends JPanel implements Runnable, KeyListener
 				}
 			}
 		}
-		
 		//collision on border 
 		if(xCoor < 0 || xCoor > 49 || yCoor < 0 || yCoor > 49)
 		{
@@ -206,7 +205,9 @@ public class Panel extends JPanel implements Runnable, KeyListener
 			left = false;
 			right = false;
 		}
+	
 	}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e)
