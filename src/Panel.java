@@ -111,6 +111,25 @@ public class Panel extends JPanel implements Runnable, KeyListener
 				i++;
 			}
 		}
+		//collision on snake body part
+		for(int i = 0 ; i < snake.size(); i++)
+		{
+			if(xCoor == snake.get(i).getxCoor() && yCoor == snake.get(i).getyCoor())
+			{
+				if(i != snake.size()- 1)
+				{
+					System.out.println("Game Over");
+					stop();
+				}
+			}
+		}
+		
+		//collision on border 
+		if(xCoor < 0 || xCoor > 49 || yCoor < 0 || yCoor > 49)
+		{
+			System.out.println("Game Over");
+			stop();
+		}
 		
 	}
 	
